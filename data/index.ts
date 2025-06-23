@@ -106,7 +106,7 @@ export const projects = [
     des: "Everyone needs a way to showcase their work. My portfolio website is a great place to do just that.",
     img: "/port.jpg",
     iconLists: ["/re.svg", "/tail.svg", "/html.png", , "/js.png"],
-    link: "https://github.com/adrianhajdin/ai_saas_app",
+    link: "https://portfolio-drab-six-17.vercel.app/",
   },
   {
     id: 4,

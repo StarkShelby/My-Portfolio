@@ -66,6 +66,14 @@ const Card = ({
   description?: string;
 }) => {
   const [hovered, setHovered] = React.useState(false);
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
   return (
     <div
       onMouseEnter={() => setHovered(true)}
@@ -78,7 +86,7 @@ const Card = ({
       <Icon className="absolute h-6 w-6 -bottom-3 -right-3 dark:text-white text-black" />
 
       <AnimatePresence>
-        {hovered && (
+        {(hovered || isMobile) && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

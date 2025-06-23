@@ -9,11 +9,11 @@ import { BackgroundBeamsWithCollision } from "./ui/beamwithcollision";
 const Footer = () => {
   return (
     <footer
-      className="w-full md:h-[450px] relative overflow-hidden  mb-2 md:mb-0"
+      className="w-full md:h-[450px] relative overflow-hidden  mb-10 md:mb-0"
       id="contact"
     >
       <BackgroundBeamsWithCollision className="w-full py-16 relative  ">
-        <div className="flex flex-col items-center px-6 mt-5 md:-top-30 relative z-10">
+        <div className="flex flex-col items-center px-6 mt-10 md:-top-30 relative z-10">
           <h1 className="heading shrink-0 lg:max-w-[50vw] text-center md:text-4xl text-lg">
             Ready to take <span className="text-purple-300">your</span> digital
             presence to the next level?

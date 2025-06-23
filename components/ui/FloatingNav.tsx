@@ -59,18 +59,23 @@ export const FloatingNav = ({
           className
         )}
       >
-        {navItems.map((navItem: any, idx: number) => (
-          <a
-            key={`link=${idx}`}
-            href={navItem.link}
-            className={cn(
-              "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500"
-            )}
-          >
-            <span className="block sm:hidden">{navItem.icon}</span>
-            <span className="text-sm cursor-pointer">{navItem.name}</span>
-          </a>
-        ))}
+        {navItems.map((navItem: any, idx: number) => {
+          const isTestimonial = navItem.name === "Testimonials";
+          return (
+            <a
+              key={`link=${idx}`}
+              href={navItem.link}
+              className={cn(
+                "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500",
+                isTestimonial ? "hidden sm:flex" : ""
+              )}
+            >
+              <span className="block sm:hidden">{navItem.icon}</span>
+              <span className="text-sm cursor-pointer">{navItem.name}</span>
+            </a>
+          );
+        })}
+
         <button
           onClick={() => window.scrollTo(0, 0)}
           className="relative overflow-hidden border text-sm font-medium border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-5 py-2 rounded-full transition-all duration-300 group"

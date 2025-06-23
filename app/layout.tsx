@@ -1,7 +1,6 @@
 // app/layout.tsx
 "use client";
 import "./globals.css";
-import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
@@ -18,25 +17,23 @@ export default function LayoutWrapper({
     // Always scroll to top on initial load
     if (typeof window !== "undefined") {
       if (window.location.hash) {
-        router.replace(pathname); // Remove the hash if present
+        router.replace(pathname); // Remove hash
       }
-      window.scrollTo(0, 0); // Scroll to top no matter what
+      window.scrollTo(0, 0); // Scroll to top
     }
   }, []);
 
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head />
-      <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
-      </body>
-    </html>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="dark"
+      enableSystem={false}
+      disableTransitionOnChange
+    >
+      <html lang="en" suppressHydrationWarning>
+        <head />
+        <body>{children}</body>
+      </html>
+    </ThemeProvider>
   );
 }

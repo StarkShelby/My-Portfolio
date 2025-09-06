@@ -2,6 +2,13 @@ html {
   scroll-behavior: smooth;
 }
 @import "tailwindcss";
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
 
 @theme inline {
   --animate-scroll: scroll var(--animation-duration, 40s)

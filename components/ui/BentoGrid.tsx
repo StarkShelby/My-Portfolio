@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
+import { useEffect, useRef } from "react";
 
 // Also install this npm i --save-dev @types/react-lottie
 // import Lottie from "react-lottie";
@@ -55,9 +56,6 @@ export const BentoGridItem = ({
   spareImg?: string;
   exImage?: string;
 }) => {
-  const leftLists = ["ReactJS", "Express", "NodeJS,", "MongoDB"];
-  const rightLists = ["Tailwind", "NextJS", "SwiftUI", "Appright"];
-
   const [copied, setCopied] = useState(false);
   const handleCopy = () => {
     const text = "shariquerahmani@gmail.com";
@@ -73,6 +71,55 @@ export const BentoGridItem = ({
   //       preserveAspectRatio: "xMidYMid slice",
   //     },
   //   };
+
+  const leftLists = ["ReactJS", "Express", "NodeJS,", "MongoDB", "GSAP"];
+  const rightLists = ["Tailwind", "NextJS", "SwiftUI", "Appright"];
+
+  const leftRef = useRef<HTMLDivElement>(null);
+  const rightRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (id !== 3) return;
+
+    const leftDiv = leftRef.current;
+    const rightDiv = rightRef.current;
+    if (!leftDiv || !rightDiv) return;
+
+    let leftScroll = 0;
+    let rightScroll = 0;
+    let leftDir = 0.79; // 1 = down, -1 = up
+    let rightDir = -1; // opposite direction
+    const speed = 0.48;
+
+    const interval = setInterval(() => {
+      const leftMax = leftDiv.scrollHeight - leftDiv.clientHeight;
+      const rightMax = rightDiv.scrollHeight - rightDiv.clientHeight;
+
+      // update left
+      leftScroll += speed * leftDir;
+      if (leftScroll >= leftMax) {
+        leftScroll = leftMax;
+        leftDir = -1;
+      } else if (leftScroll <= 0) {
+        leftScroll = 0;
+        leftDir = 1;
+      }
+      leftDiv.scrollTop = leftScroll;
+
+      // update right (opposite direction)
+      rightScroll += speed * rightDir;
+      if (rightScroll >= rightMax) {
+        rightScroll = rightMax;
+        rightDir = -1;
+      } else if (rightScroll <= 0) {
+        rightScroll = 0;
+        rightDir = 1;
+      }
+      rightDiv.scrollTop = rightScroll;
+    }, 20);
+
+    return () => clearInterval(interval);
+  }, [id]);
 
   return (
     <div
@@ -155,26 +202,31 @@ export const BentoGridItem = ({
           {/* Tech stack list div */}
           {id === 3 && (
             <div className="flex gap-1 lg:gap-5 w-fit h-30 md:h-64 lg:h-72 absolute -right-3 lg:-right-2">
-              {/* tech stack lists */}
-              <div className="flex flex-col py-2 gap-3 md:gap-3 lg:gap-8 overflow-y-auto hide-scrollbar">
+              {/* tech stack lists on left */}
+              <div
+                ref={leftRef}
+                className="flex flex-col py-2 gap-3 md:gap-3 lg:gap-8 overflow-y-auto hide-scrollbar"
+              >
                 {leftLists.map((item, i) => (
                   <span
                     key={i}
                     className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 
-                    lg:opacity-100 rounded-lg text-center bg-[#10132E]"
+                    lg:opacity-100 rounded-lg text-center bg-[#10132E] hide-scrollbar"
                   >
                     {item}
                   </span>
                 ))}
                 <span className="lg:py-4 lg:px-3 py-4 px-3  rounded-lg text-center bg-[#10132E]"></span>
               </div>
-              <div className="flex flex-col gap-3 px-5 md:gap-3 lg:gap-8 overflow-y-auto ">
+              <div
+                ref={rightRef} // <-- assign ref here
+                className="flex flex-col gap-3 px-5 md:gap-3 lg:gap-8 overflow-y-auto hide-scrollbar"
+              >
                 <span className="lg:py-4 lg:px-3 py-4 px-3 rounded-lg text-center bg-[#10132E]"></span>
                 {rightLists.map((item, i) => (
                   <span
                     key={i}
-                    className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 
-                    lg:opacity-100 rounded-lg text-center bg-[#10132E]"
+                    className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132E]"
                   >
                     {item}
                   </span>

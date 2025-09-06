@@ -116,6 +116,14 @@ export const projects = [
     iconLists: ["/apple.png", "/swift.png"],
     link: "https://github.com/StarkShelby/RecipeApp-iOS-",
   },
+  {
+    id: 2,
+    title: "Velora Mist",
+    des: "Velora Mist is a sleek and interactive mojito shop website built with GSAP animations, delivering a refreshing and modern user experience that feels as smooth as the drink itself.",
+    img: "/velora.jpg",
+    iconLists: ["/re.svg", "/tail.svg", "/js.png", "/gsap.svg"],
+    link: "https://veloramistmojitoshop.vercel.app/",
+  },
 ];
 
 export const testimonials = [

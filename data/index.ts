@@ -117,12 +117,27 @@ export const projects = [
     link: "https://github.com/StarkShelby/RecipeApp-iOS-",
   },
   {
-    id: 2,
+    id: 5,
     title: "Velora Mist",
     des: "Velora Mist is a sleek and interactive mojito shop website built with GSAP animations, delivering a refreshing and modern user experience that feels as smooth as the drink itself.",
     img: "/velora.jpg",
     iconLists: ["/re.svg", "/tail.svg", "/js.png", "/gsap.svg"],
     link: "https://veloramistmojitoshop.vercel.app/",
+  },
+  {
+    id: 6,
+    title: "ResumeForge",
+    des: "ResumeForge helps users create polished, ATS-friendly resumes using AI.It combines smart text generation with a sleek, easy-to-use interface.",
+    img: "/resume.png",
+    iconLists: [
+      "/next.svg",
+      "/tail.svg",
+      "/js.png",
+      "/gsap.svg",
+      "express.png",
+      "fm.svg",
+    ],
+    link: "https://ai-resume-builder-frontend-v1.vercel.app/",
   },
 ];
 
@@ -145,18 +160,7 @@ export const testimonials = [
     name: "Vishal MEghani",
     title: "Director of AlphaStream Technologies",
   },
-  // {
-  //   quote:
-  //     "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-  //   name: "Denis",
-  //   title: "Director of AlphaStream Technologies",
-  // },
-  // {
-  //   quote:
-  //     "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-  //   name: "Aeun",
-  //   title: "Director of AlphaStream Technologies",
-  // },
+  //
 ];
 
 export const companies = [

@@ -401,10 +401,15 @@ export function GlobeDemo() {
     <div className="flex items-center justify-center w-full absolute -left-5 top-36 md:top-40 h-full">
       <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-96 px-4">
 
+        {/* 🌑 subtle background while globe loads */}
+        <div className="absolute inset-0 bg-[#120622] rounded-xl" />
+
         <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent dark:to-black to-white z-40" />
+
         <div className="absolute w-full -bottom-20 h-72 md:h-full z-10">
           <World data={sampleArcs} globeConfig={globeConfig} />
         </div>
+
       </div>
     </div>
   );

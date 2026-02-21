@@ -9,6 +9,8 @@ import { navItems } from "@/data";
 import { TestContext } from "node:test";
 import Testimonial from "@/components/Testimonial";
 import Footer from "@/components/Footer";
+import ChatWidget from "@/components/ChatWidget";
+
 export default function Home() {
   return (
     <main className="relative bg-[#000319] flex justify-center items-center flex-col overflow-clip mx-auto sm:px-10 px-5">
@@ -20,6 +22,7 @@ export default function Home() {
         <Testimonial />
         <Approach />
         <Footer />
+        <ChatWidget />
       </div>
     </main>
   );
